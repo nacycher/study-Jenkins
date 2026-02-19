@@ -12,7 +12,3 @@ public class TestController {
         return "hello world";
     }
 }
-user = User.where(id: 1).first
-user.password = 'linbo.123'
-user.password_confirmation = 'linbo.123'
-user.save!
