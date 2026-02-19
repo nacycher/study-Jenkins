@@ -3,13 +3,13 @@ study-Jenkins
 ## 视频地址 https://www.bilibili.com/video/BV1bS4y1471A
 
 
-![img_1.png](img_1.png)
+![img_1.png](src/main/resources/static/img_1.png)
 
 ## Jenkins简介
 CIDI，自动化集成、自动化部署
 
 ## Jenkins在开发中的位置和作用
-![img.png](img.png)
+![img.png](src/main/resources/static/img.png)
 
 ## Jenkins+maven+git的集成使用
 
@@ -38,6 +38,7 @@ docker run -d \
 --restart always \
 -p 8080:8080 \
 -p 50000:50000 \
+-p 8081:8081 \
 -v /data/jenkins:/var/jenkins_home \
 -v /usr/bin/docker:/usr/bin/docker \
 -v /var/run/docker.sock:/var/run/docker.sock \
@@ -55,13 +56,13 @@ exit
 docker restart jenkins
 ```
 在jenkins中安装对应的部署项目要用的插件，这里是git和maven插件
-![img_2.png](img_2.png)
+![img_2.png](src/main/resources/static/img_2.png)
 
 ## 配置maven和git部署项目
 - 配置好git
-![img_3.png](img_3.png)
+![img_3.png](src/main/resources/static/img_3.png)
 
 - 安装maven、配置好项目的pom.xml路径
-![img_4.png](img_4.png)
+![img_4.png](src/main/resources/static/img_4.png)
 
 - 执行build，发现jar包已经被打到镜像中
