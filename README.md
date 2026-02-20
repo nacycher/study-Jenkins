@@ -36,12 +36,18 @@ mkdir -p /data/jenkins && chmod 777 -R /data/jenkins
 docker run -d \
 --name jenkins \
 --restart always \
--p 8080:8080 \
+-p 8881:8881 \
 -p 50000:50000 \
--p 8081:8081 \
 -v /data/jenkins:/var/jenkins_home \
 -v /usr/bin/docker:/usr/bin/docker \
 -v /var/run/docker.sock:/var/run/docker.sock \
+-v /etc/localtime:/etc/localtime:ro \
+-e JENKINS_UC="https://mirrors.huaweicloud.com/jenkins" \
+-e JENKINS_UC_DOWNLOAD="https://mirrors.huaweicloud.com/jenkins" \
+-e JENKINS_UPDATE_CENTER_URL="https://mirrors.huaweicloud.com/jenkins/updates/update-center.json" \
+-e LANG=C.UTF-8 \
+-e TZ=Asia/Shanghai \
+-e JENKINS_OPTS="--httpPort=8881" \
 -u root \
 jenkins/jenkins:lts-jdk17
 # 3. 设置jenkins代理
@@ -66,3 +72,11 @@ docker restart jenkins
 ![img_4.png](src/main/resources/static/img_4.png)
 
 - 执行build，发现jar包已经被打到镜像中
+
+# 添加publish shh
+添加ssh的形式将包发送过去
+![img_1.png](img_6.png)
+
+## 推送到阿里云
+后续推送到阿里云可能会用到这几种插件
+![img.png](img_5.png)
